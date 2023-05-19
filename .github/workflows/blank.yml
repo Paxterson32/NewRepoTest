@@ -1,0 +1,19 @@
+name: BDD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    if: github.event.head_commit.message == 'SPP-BDD'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Printing Hello World
+        run: echo "Hello world"

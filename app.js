@@ -73,7 +73,7 @@ app.post("/order", async (req, res) => {
     shippingAddress,
     orderedProduct,
   };
-    
+  
   const newClient = new Client(client);
   await newClient.save();
 

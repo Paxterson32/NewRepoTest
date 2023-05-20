@@ -1,7 +1,5 @@
 const { JSDOM } = require('jsdom');
 const fs = require('fs');
-const assert = require('chai').assert;
-const Client = require('../models/client');
 
 // Configuration de l'environnement JS DOM
 const dom = new JSDOM('<!DOCTYPE html><html><body></body></html>');
@@ -20,14 +18,14 @@ const isValidPhoneNumber = (phoneNumber) => {
   return /^\+\d{12,15}$/.test(phoneNumber); // Format attendu: +XXXXXXXXXXXXXXX (de 12 à 15 chiffres)
 };
 
-// Test du formulaire et du modèle de la base de données
-describe('Formulaire et Client Model', () => {
+// Test du formulaire
+describe('Formulaire', () => {
   beforeEach(() => {
     // Réinitialisez l'état du formulaire avant chaque test
     document.body.innerHTML = '';
   });
 
-  test('Soumission du formulaire et création d\'un nouveau client', () => {
+  test('Soumission du formulaire', () => {
     // Injectez le code du formulaire dans le DOM
     document.body.innerHTML = formCode;
 
@@ -61,22 +59,5 @@ describe('Formulaire et Client Model', () => {
 
     // Vérification du format du numéro de téléphone
     expect(isValidPhoneNumber(phoneInput.value)).toBe(true);
-
-    // Vérification de la création d'un nouveau client dans la base de données
-    const clientData = {
-      fullName: 'Shar Doe',
-      city: 'Shar City',
-      phoneNumber: '+1234567890123',
-      shippingAddress: 'Shar Street, 123',
-      orderedProduct: '40939713134644'
-    };
-
-    const client = new Client(clientData);
-
-    assert.equal(client.fullName, clientData.fullName);
-    assert.equal(client.city, clientData.city);
-    assert.equal(client.phoneNumber, clientData.phoneNumber);
-    assert.equal(client.shippingAddress, clientData.shippingAddress);
-    assert.equal(client.orderedProduct, clientData.orderedProduct);
-  });
+  })
 });

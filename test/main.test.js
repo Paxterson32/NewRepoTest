@@ -1,7 +1,7 @@
-import { JSDOM } from 'jsdom';
-import { readFileSync } from 'fs';
-import { assert } from 'chai';
-import Client from '../models/client';
+const { JSDOM } = require('jsdom');
+const fs = require('fs');
+const assert = require('chai').assert;
+const Client = require('../models/client');
 
 // Configuration de l'environnement JS DOM
 const dom = new JSDOM('<!DOCTYPE html><html><body></body></html>');
@@ -12,7 +12,7 @@ global.window = dom.window;
 const formFilePath = './views/form.html';
 
 // Charger le contenu du fichier
-const formCode = readFileSync(formFilePath, 'utf-8');
+const formCode = fs.readFileSync(formFilePath, 'utf-8');
 
 // Fonctions utilitaires pour la vérification des formats
 const isValidPhoneNumber = (phoneNumber) => {

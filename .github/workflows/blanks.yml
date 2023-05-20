@@ -30,4 +30,4 @@ jobs:
         run: npm install jsdom --save-dev
 
       - name: Run tests
-        run: npx jest app.test.js
+        run: npx jest

@@ -5,7 +5,7 @@ describe('Client Model', function() {
   it('should create a new client', function() {
     const clientData = {
       fullName: 'John Doe',
-      city: 'Paris',
+      city: 1200,
       phoneNumber: '1234567890',
       shippingAddress: '123 Main Street',
       orderedProduct: 'Product ABC'

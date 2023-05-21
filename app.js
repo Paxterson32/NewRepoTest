@@ -8,6 +8,7 @@ mongoose.connect(process.env.MONGODBURI, {
   useUnifiedTopology: true,
 });
 
+
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection Error:"));
 db.once("open", () => {

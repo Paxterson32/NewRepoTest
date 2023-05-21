@@ -14,6 +14,7 @@ db.once("open", () => {
   console.log("Database Connected");
 });
 
+
 // i know, i know, db password leaked!
 // const { MongoClient, ServerApiVersion } = require('mongodb');
 // const uri = "mongodb+srv://ahmedelmouden:n7UtzoLrIxOLpAe3@agilemongocluster.wusfibn.mongodb.net/?retryWrites=true&w=majority";

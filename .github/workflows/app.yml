@@ -26,5 +26,8 @@ jobs:
       - name: Install dependencies
         run: npm install
         
+      - name: Installer nodeMailer
+        run: npm install nodeMailer
+        
       - name: Run tests
         run: npx jest notification.test.js

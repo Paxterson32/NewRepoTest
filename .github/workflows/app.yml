@@ -27,4 +27,4 @@ jobs:
         run: npm install
         
       - name: Run tests
-        run: npx jest app.test.js
+        run: npx jest notification.test.js
